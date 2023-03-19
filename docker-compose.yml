@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   myapp:
-    build: .
+    image: ubuntu:latest
     command: bash
     environment:
       - OKTETO_NAMESPACE=${OKTETO_NAMESPACE}
