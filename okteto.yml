@@ -1,0 +1,4 @@
+name: terminal-app
+image: ubuntu:latest
+command:
+  - /bin/bash
