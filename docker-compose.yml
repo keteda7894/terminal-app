@@ -4,6 +4,7 @@ services:
     image: ubuntu
     command: tail -f /dev/null
 endpoints:
+  web:
   - path: /
     service: frontend
     port: 80
