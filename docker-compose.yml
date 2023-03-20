@@ -3,7 +3,7 @@ services:
   terminal:
     labels:
       dev.okteto.com/private: "true"    
-    image: ubuntu
+    image: alpine
     command: bash
     tty: true
     ports:
