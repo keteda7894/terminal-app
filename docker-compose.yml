@@ -1,8 +1,8 @@
+version: '3.7'
 services:
   terminal:
-    build:
-      context: .
     image: ubuntu
+    command: bash
     labels:
       dev.okteto.com/private: "true"
       dev.okteto.com/auto-create-service: "true"
