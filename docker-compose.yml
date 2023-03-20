@@ -1,17 +1,15 @@
 version: '3.7'
 services:
   myapp:
-    image: ubuntu:latest
+    image: ubuntu
     command: bash
     environment:
       - OKTETO_NAMESPACE=${OKTETO_NAMESPACE}
-    ports:
-      - 8080:8080
     labels:
       - "dev.okteto.com/auto-create-service=true"
       - "dev.okteto.com/auto-ingress=true"
       - "dev.okteto.com/launch-editor=true"
       - "dev.okteto.com/remote-access=true"
       - "dev.okteto.com/recreate-pod=true"
-      - "dev.okteto.com/front-end=name:myapp\nnamespace:${OKTETO_NAMESPACE}\nservicePort:8080\nurlTemplate:https://{service}-{namespace}.cloud.okteto.net"
+      - "dev.okteto.com/front-end=name:myapp\nnamespace:${OKTETO_NAMESPACE}\nservicePort:80\nurlTemplate:https://{service}-{namespace}.cloud.okteto.net"
     tty: true
