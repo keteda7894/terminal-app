@@ -1,14 +1,10 @@
-version: '3.7'
+name: terminal
 services:
   terminal:
+    labels:
+      dev.okteto.com/private: "true"    
     image: ubuntu
     command: bash
-    labels:
-      dev.okteto.com/private: "true"
-      dev.okteto.com/auto-create-service: "true"
-      dev.okteto.com/auto-ingress: "true"
-      dev.okteto.com/launch-editor: "true"
-      dev.okteto.com/remote-access: "true"
-      dev.okteto.com/recreate-pod: "true"
-      dev.okteto.com/front-end: "name:terminal\nnamespace:${OKTETO_NAMESPACE}\nservicePort:8080\nurlTemplate:https://{service}-{namespace}.cloud.okteto.net"
     tty: true
+    ports:
+      - 8080:80
