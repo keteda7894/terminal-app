@@ -1,10 +1,7 @@
-name: terminal
+version: "3"
+
 services:
-  terminal:
-    labels:
-      dev.okteto.com/private: "true"    
-    image: alpine
-    command: bash
+  interactive_shell:
+    image: ubuntu
     tty: true
-    ports:
-      - 8080:80
+    stdin_open: true
