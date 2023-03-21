@@ -1,5 +1,9 @@
-version: '3.8'
 services:
-  nginx:
-    image: nginx
-    command: sh
+  termi:
+    labels:
+      dev.okteto.com/private: "true"
+    image: okteto/frontend
+    ports:
+      - 8080:80
+    tty: true
+    stdin_open: true
