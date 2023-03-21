@@ -1,21 +1,16 @@
 version: "3"
 
 services:
-  gotty:
+  interactive_shell:
     image: alpine:3
+    tty: true
+    stdin_open: true
     environment:
       - HOME=/root
-    command: sh -c "apk add --no-cache bash curl iputils && \
-                    echo 'source /root/.bash_aliases' >> /root/.bashrc && \
-                    /usr/local/bin/gotty --permit-write --reconnect /bin/bash"
-    ports:
-      - "8080:8080"
+      - TERM=xterm
     volumes:
       - ./bashrc:/root/.bashrc
       - ./bash_aliases:/root/.bash_aliases
-    depends_on:
-      - okteto
-
-  okteto:
-    image: okteto/cloudbin:1.8.39
-    command: /bin/sh
+    command: sh -c "apk add --no-cache bash curl iputils && \
+                    echo 'source /root/.bash_aliases' >> /root/.bashrc && \
+                    /bin/bash"
