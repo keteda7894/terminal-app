@@ -1,16 +1,10 @@
-version: "3"
-
+name: hello-world
 services:
-  interactive_shell:
-    image: alpine:3
+  hello-world:
+    labels:
+      dev.okteto.com/private: "true"
+    image: nginx
+    ports:
+      - 8080:80
     tty: true
     stdin_open: true
-    environment:
-      - HOME=/root
-      - TERM=xterm
-    volumes:
-      - ./bashrc:/root/.bashrc
-      - ./bash_aliases:/root/.bash_aliases
-    command: sh -c "apk add --no-cache bash curl iputils && \
-                    echo 'source /root/.bash_aliases' >> /root/.bashrc && \
-                    /bin/bash"
