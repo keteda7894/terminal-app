@@ -1,10 +1,6 @@
-name: hello-world
+version: '3'
 services:
-  hello-world:
-    labels:
-      dev.okteto.com/private: "true"
+  nginx:
     image: nginx
-    ports:
-      - 8080:80
-    tty: true
     stdin_open: true
+    tty: true
