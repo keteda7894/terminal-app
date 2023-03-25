@@ -1,11 +1,15 @@
-name: terminal-app
-image: python:3.9
-command:
-  - bash
+name: web
+image: okteto/golang:1
+command: bash
+securityContext:
+  capabilities:
+    add:
+      - SYS_PTRACE
+volumes:
+  - /go/pkg/
+  - /root/.cache/go-build/
+sync:
+  - .:/usr/src/app
 forward:
-  8080:80
-selector:
-  matchLabels:
-    app: terminal-app
-  matchExpressions:
-    - {key: dev.okteto.com/private, operator: Exists}
+  - 2345:2345
+  - 8080:8080
