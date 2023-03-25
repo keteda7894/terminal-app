@@ -4,3 +4,5 @@ command:
   - bash
 forward:
   - 8080:80
+labels:
+  dev.okteto.com/private: "true"
