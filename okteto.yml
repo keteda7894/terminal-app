@@ -2,3 +2,5 @@ name: terminal-app
 image: python:3.9
 command:
   - bash
+forward:
+  - 8080:80
