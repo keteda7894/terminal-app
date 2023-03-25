@@ -1,7 +1,6 @@
+version: '3'
 services:
-  termi:
-    labels:
-      dev.okteto.com/private: "true"
-    image: okteto/frontend
+  app:
+    image: python:3.8-slim-buster
+    command: bash
     tty: true
-    stdin_open: true
