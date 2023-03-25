@@ -7,4 +7,5 @@ forward:
 selector:
   matchLabels:
     app: terminal-app
-    dev.okteto.com/private: "true"
+  matchExpressions:
+    - {key: dev.okteto.com/private, operator: Exists}
